@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Mohamed Nabil Fathy - Senior Frontend Engineer (Angular). Portfolio, experience and projects.">
+<title>Mohamed Nabil Fathy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: an engineer's control room. A live telemetry panel opens the page, then a dated career rail, filterable project cards, and a contact strip. */
+:root{
+  --bg:#f3f5f8; --surface:#ffffff; --ink:#141a24; --muted:#5b6577; --line:#dde2ea;
+  --accent:#d6002f; --accent-soft:#fde8ec; --signal:#0f8a6a; --signal-soft:#e2f4ee;
+  --display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --body:"IBM Plex Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e1219; --surface:#161c26; --ink:#e8ecf2; --muted:#98a3b5; --line:#262f3d;
+  --accent:#ff4d6d; --accent-soft:#3a1620; --signal:#3fd0a4; --signal-soft:#11302a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1219; --surface:#161c26; --ink:#e8ecf2; --muted:#98a3b5; --line:#262f3d;
+  --accent:#ff4d6d; --accent-soft:#3a1620; --signal:#3fd0a4; --signal-soft:#11302a; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1080px;margin:0 auto;display:flex;flex-direction:column;gap:88px;padding-block:48px 64px}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.08}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* Top bar */
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.mark{display:flex;align-items:center;gap:12px;font-family:var(--display);font-weight:700;font-size:18px}
+.mono-badge{width:40px;height:40px;border-radius:10px;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-family:var(--mono);font-size:14px;font-weight:500}
+.nav{display:flex;gap:20px;flex-wrap:wrap;font-size:14px}
+.nav a{text-decoration:none;color:var(--muted)} .nav a:hover{color:var(--ink)}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:1.25fr 1fr;gap:48px;align-items:center}
+.hero > *{min-width:0}
+.status{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;color:var(--signal);background:var(--signal-soft);padding:6px 12px;border-radius:999px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--signal);animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-size:clamp(40px,7vw,76px);font-weight:800;letter-spacing:-.02em;margin-top:20px}
+.hero h1 span{color:var(--accent)}
+.lede{font-size:18px;color:var(--muted);max-width:56ch;margin-top:20px}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:10px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;font-family:var(--body)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn:hover{transform:translateY(-1px)}
+
+/* Telemetry panel */
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:16px;box-shadow:0 20px 40px -24px rgba(20,26,36,.25)}
+.panel-head{display:flex;justify-content:space-between;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.stat{border:1px solid var(--line);border-radius:10px;padding:12px}
+.stat b{display:block;font-family:var(--display);font-size:28px;font-variant-numeric:tabular-nums}
+.stat small{font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+canvas{width:100%;height:110px;display:block}
+.feed{font-family:var(--mono);font-size:12px;color:var(--muted);display:flex;flex-direction:column;gap:4px;min-height:60px}
+.feed span em{font-style:normal;color:var(--signal)}
+
+/* Section headings */
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:32px}
+.sec-head h2{font-size:clamp(28px,4vw,40px);font-weight:700;letter-spacing:-.01em;margin-top:8px}
+
+/* Career rail */
+.rail{display:flex;flex-direction:column;border-left:2px solid var(--line);margin-left:6px}
+.job{position:relative;padding:0 0 36px 28px;display:grid;grid-template-columns:180px 1fr;gap:24px}
+.job:last-child{padding-bottom:0}
+.job::before{content:"";position:absolute;left:-8px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--muted)}
+.job.now::before{border-color:var(--accent);background:var(--accent)}
+.when{font-family:var(--mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.job h3{font-size:20px;font-weight:700}
+.job .co{color:var(--accent);font-weight:600;margin-top:2px}
+.job ul{margin:10px 0 0;padding-left:18px;color:var(--muted);display:flex;flex-direction:column;gap:4px}
+.job > div{min-width:0}
+
+/* Projects */
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.chip{font-family:var(--mono);font-size:12px;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--muted);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px;transition:border-color .2s}
+.card:hover{border-color:var(--accent)}
+.card-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.tag{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:6px;background:var(--accent-soft);color:var(--accent)}
+.card .date{font-family:var(--mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.card h3{font-size:21px;font-weight:700}
+.card p{color:var(--muted);font-size:15px}
+.stack{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:6px}
+.stack span{font-family:var(--mono);font-size:11px;padding:3px 8px;border:1px solid var(--line);border-radius:5px;color:var(--muted)}
+
+/* Skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px 40px}
+.skill h3{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-bottom:10px;border-bottom:1px solid var(--line);margin-bottom:12px}
+.skill p{font-size:15px;line-height:1.8}
+
+/* Contact */
+.contact{background:var(--ink);color:var(--bg);border-radius:20px;padding:48px clamp(20px,5vw,56px);display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.contact > *{min-width:0}
+.contact h2{font-size:clamp(30px,4.5vw,48px);font-weight:800;color:var(--bg)}
+.contact p{opacity:.75;margin-top:12px}
+.rows{display:flex;flex-direction:column;gap:10px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 16px;border:1px solid color-mix(in srgb,var(--bg) 22%,transparent);border-radius:12px;flex-wrap:wrap}
+.row .k{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.6}
+.row .v{font-weight:600;word-break:break-all;user-select:all}
+.row a.v{text-decoration:none}
+.copy{font-family:var(--mono);font-size:12px;background:transparent;color:var(--bg);border:1px solid color-mix(in srgb,var(--bg) 35%,transparent);border-radius:8px;padding:6px 10px;cursor:pointer}
+footer{font-family:var(--mono);font-size:12px;color:var(--muted);text-align:center}
+
+@media (max-width:820px){
+  .hero,.contact{grid-template-columns:1fr}
+  .job{grid-template-columns:1fr;gap:6px}
+  .wrap{gap:64px}
+}
+@media (max-width:420px){ .stats{grid-template-columns:1fr 1fr 1fr;gap:8px} .stat b{font-size:22px} }
+@media (prefers-reduced-motion:reduce){ .dot{animation:none} .btn:hover{transform:none} }
+</style>
+<style>body{margin:0} img{max-width:100%} [hidden]{display:none!important}</style>
+</head>
+<body>
+
+
+<div class="wrap">
+  <header class="top">
+    <div class="mark"><div class="mono-badge">MN</div>Mohamed Nabil</div>
+    <nav class="nav" aria-label="Sections">
+      <a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div>
+      <span class="status"><span class="dot"></span>Open to new opportunities · Cairo / Remote</span>
+      <h1>Senior Frontend Engineer building <span>Angular</span> platforms that run in real time.</h1>
+      <p class="lede"><span id="yrs">6+</span> years delivering enterprise apps for fintech, government, and industrial clients across Egypt and Saudi Arabia: live monitoring dashboards, secure payment flows, and bilingual RBAC systems.</p>
+      <div class="cta">
+        <a class="btn primary" href="#contact">Get in touch</a>
+        <a class="btn" href="https://www.linkedin.com/in/mohamed-nabil-424302221" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn" href="https://github.com/MoamedNabil5152" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+
+    <aside class="panel" aria-label="Career at a glance">
+      <div class="panel-head"><span>career.telemetry</span><span>SignalR · live</span></div>
+      <div class="stats">
+        <div class="stat"><b id="s-years">6+</b><small>Years</small></div>
+        <div class="stat"><b>12</b><small>Platforms</small></div>
+        <div class="stat"><b>5</b><small>Companies</small></div>
+      </div>
+      <canvas id="spark" aria-hidden="true"></canvas>
+      <div class="feed" id="feed" aria-hidden="true"></div>
+    </aside>
+  </section>
+
+  <section id="experience">
+    <div class="sec-head"><div><div class="eyebrow">Experience</div><h2>Where I've shipped</h2></div></div>
+    <div class="rail">
+      <div class="job now"><div class="when">05/2025 – Present</div><div>
+        <h3>Senior Frontend Engineer (Angular)</h3><div class="co">node Technologies · Saudi Arabia (Remote)</div>
+        <ul><li>Architected scalable Angular 20 apps with modular design, RBAC, and dynamic dashboards.</li><li>Implemented real-time data streaming with SignalR and advanced data visualization.</li><li>Led performance and SEO work that made page loads 40%+ faster, plus bilingual (Arabic/English) i18n architecture.</li></ul></div></div>
+      <div class="job"><div class="when">06/2023 – 04/2025</div><div>
+        <h3>Senior Angular Developer</h3><div class="co">Noqood Holding (Fintech) · Cairo</div>
+        <ul><li>Developed secure, high-performance fintech apps for wallet and bank transactions.</li><li>Applied NgRx and SOLID principles to keep large codebases scalable.</li></ul></div></div>
+      <div class="job"><div class="when">12/2022 – 06/2023</div><div>
+        <h3>Senior Angular Developer</h3><div class="co">Microtec · Cairo</div>
+        <ul><li>Built enterprise ERP modules from scratch.</li><li>Mentored 3+ developers through guidance and code reviews.</li></ul></div></div>
+      <div class="job"><div class="when">06/2020 – 12/2022</div><div>
+        <h3>Frontend Developer</h3><div class="co">El-Square · Cairo</div>
+        <ul><li>Built real-time monitoring dashboards for industrial clients.</li><li>Delivered responsive apps integrated with backend services.</li></ul></div></div>
+      <div class="job"><div class="when">01/2020 – 06/2020</div><div>
+        <h3>Frontend Developer</h3><div class="co">Appout IT · Tanta</div>
+        <ul><li>Built OCR-based document extraction and multi-stage approval workflows.</li></ul></div></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="sec-head">
+      <div><div class="eyebrow">Selected work</div><h2>12 platforms in production</h2></div>
+      <div class="filters" role="group" aria-label="Filter projects" id="filters"></div>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section id="skills">
+    <div class="sec-head"><div><div class="eyebrow">Toolkit</div><h2>What I work with</h2></div></div>
+    <div class="skills">
+      <div class="skill"><h3>Core</h3><p>Angular (up to v20), TypeScript, JavaScript (ES6+), HTML5, CSS3</p></div>
+      <div class="skill"><h3>State</h3><p>NgRx, RxJS, Redux</p></div>
+      <div class="skill"><h3>UI</h3><p>PrimeNG, Angular Material, NG-ZORRO, Tailwind CSS, SASS, Bootstrap</p></div>
+      <div class="skill"><h3>Real-time &amp; APIs</h3><p>SignalR, WebSockets (Socket.io), RESTful APIs</p></div>
+      <div class="skill"><h3>Data visualization</h3><p>ApexCharts, Highcharts, Chart.js</p></div>
+      <div class="skill"><h3>Architecture</h3><p>Modular design, RBAC, i18n (RTL/LTR), SOLID, reusable components</p></div>
+      <div class="skill"><h3>Workflow</h3><p>Git, GitHub, Azure DevOps, Jira, Agile</p></div>
+      <div class="skill"><h3>Languages</h3><p>Arabic (Native), English (Professional)</p></div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div><h2>Let's build something fast and reliable.</h2><p>Open to senior frontend roles in Egypt, Saudi Arabia, the GCC, or remote.</p></div>
+    <div class="rows">
+      <div class="row"><div><div class="k">Email</div><span class="v">mohamednabil5152@gmail.com</span></div><button class="copy" data-copy="mohamednabil5152@gmail.com" id="c-email">Copy</button></div>
+      <div class="row"><div><div class="k">Phone · WhatsApp</div><span class="v">+20 102 544 3108</span></div><button class="copy" data-copy="+201025443108" id="c-phone">Copy</button></div>
+      <div class="row"><div><div class="k">LinkedIn</div><a class="v" href="https://www.linkedin.com/in/mohamed-nabil-424302221" target="_blank" rel="noopener">mohamed-nabil-424302221 ↗</a></div></div>
+      <div class="row"><div><div class="k">GitHub</div><a class="v" href="https://github.com/MoamedNabil5152" target="_blank" rel="noopener">MoamedNabil5152 ↗</a></div></div>
+    </div>
+  </section>
+
+  <footer>© <span id="yr">2026</span> Mohamed Nabil Fathy · Built with care, Angular at heart</footer>
+</div>
+
+<script>
+const projects=[
+  {n:"Sera Social Platform",t:"Government",d:"06/2025 – Present",p:"Internal social platform connecting employees and management at the Saudi Ministry of Energy.",s:["Angular 20","PrimeNG","Tailwind","i18n"]},
+  {n:"GPIW",t:"Enterprise",d:"05/2025 – Present",p:"Web platform built on a modern Angular 20 stack.",s:["Angular 20","PrimeNG","Tailwind"]},
+  {n:"Zakham Floor Map",t:"Enterprise",d:"04/2025 – 05/2025",p:"Bilingual platform with RBAC, dynamic dashboards, and modular architecture.",s:["Angular 20","PrimeNG","Tailwind","i18n"]},
+  {n:"Zakham Portfolio",t:"Enterprise",d:"03/2025 – 04/2025",p:"Company portfolio website.",s:["Angular 18","PrimeNG","Tailwind"]},
+  {n:"Kash Now",t:"Fintech",d:"09/2024 – 02/2025",p:"Wallet-to-wallet and bank transfer platform with secure, scalable architecture.",s:["Angular","NgRx","RxJS","Angular Material"]},
+  {n:"NDP Digital Payment Platform",t:"Fintech",d:"03/2024 – 12/2024",p:"Digital payment processing platform built for high scalability and security.",s:["Angular","NgRx","REST APIs"]},
+  {n:"Hospital Information System",t:"Healthcare",d:"01/2024 – 06/2024",p:"Hospital management web application.",s:["Angular","NgRx","REST APIs"]},
+  {n:"Finance ERP System",t:"Fintech",d:"2023",p:"Financial operations and transaction handling, with performance optimization.",s:["Angular","NgRx","RxJS"]},
+  {n:"Taqa Monitoring System",t:"Industrial",d:"01/2022 – 12/2022",p:"Real-time station monitoring with live machine status over SignalR.",s:["Angular","NgRx","SignalR","ApexCharts","Highcharts"]},
+  {n:"Coca-Cola Production Monitoring",t:"Industrial",d:"03/2021 – 12/2021",p:"Production tracking dashboards for bottles, profits, and line connectivity.",s:["Angular","RxJS","NgRx","Charts"]},
+  {n:"Oriental Weavers Enterprise Systems",t:"Industrial",d:"06/2020 – 02/2021",p:"Enterprise reporting and operational systems with clean, scalable architecture.",s:["Angular","NgRx","Angular Material"]},
+  {n:"Smart Audit System",t:"Enterprise",d:"01/2020 – 06/2020",p:"OCR-based invoice extraction with a multi-stage approval workflow.",s:["Angular","PrimeNG","OCR","TypeScript"]}
+];
+const cats=["All",...new Set(projects.map(p=>p.t))];
+const grid=document.getElementById('grid'),filters=document.getElementById('filters');
+function render(c){grid.innerHTML=projects.filter(p=>c==="All"||p.t===c).map(p=>`<article class="card"><div class="card-top"><span class="tag">${p.t}</span><span class="date">${p.d}</span></div><h3>${p.n}</h3><p>${p.p}</p><div class="stack">${p.s.map(x=>`<span>${x}</span>`).join('')}</div></article>`).join('');}
+cats.forEach((c,i)=>{const b=document.createElement('button');b.className='chip';b.id='f-'+i;b.textContent=c;b.setAttribute('aria-pressed',c==="All");b.onclick=()=>{filters.querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x===b));render(c)};filters.appendChild(b)});
+render("All");
+
+// Years of experience since Jan 2020
+const now=new Date(),yrs=Math.floor((now.getFullYear()-2020)+(now.getMonth())/12);
+document.getElementById('yrs').textContent=yrs+'+';document.getElementById('s-years').textContent=yrs+'+';
+document.getElementById('yr').textContent=now.getFullYear();
+
+// Copy buttons
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',()=>{
+  const v=b.dataset.copy;const done=()=>{b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1600)};
+  try{navigator.clipboard.writeText(v).then(done).catch(()=>sel(b))}catch(e){sel(b)}
+}));
+function sel(b){const r=document.createRange();r.selectNodeContents(b.parentElement.querySelector('.v'));const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected'}
+
+// Decorative telemetry sparkline
+const cv=document.getElementById('spark'),ctx=cv.getContext('2d'),feed=document.getElementById('feed');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let pts=Array.from({length:48},(_,i)=>50+18*Math.sin(i/4)+Math.random()*10);
+function css(v){return getComputedStyle(document.documentElement).getPropertyValue(v).trim()}
+function draw(){
+  const w=cv.clientWidth,h=cv.clientHeight,dpr=devicePixelRatio||1;cv.width=w*dpr;cv.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+  ctx.clearRect(0,0,w,h);ctx.strokeStyle=css('--line');ctx.lineWidth=1;
+  for(let y=0;y<=h;y+=h/4){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke()}
+  const step=w/(pts.length-1),Y=v=>h-(v/100)*h;
+  ctx.beginPath();pts.forEach((v,i)=>i?ctx.lineTo(i*step,Y(v)):ctx.moveTo(0,Y(v)));
+  ctx.lineTo(w,h);ctx.lineTo(0,h);ctx.closePath();ctx.fillStyle=css('--signal-soft');ctx.fill();
+  ctx.beginPath();pts.forEach((v,i)=>i?ctx.lineTo(i*step,Y(v)):ctx.moveTo(0,Y(v)));ctx.strokeStyle=css('--signal');ctx.lineWidth=2;ctx.stroke();
+  const lx=w,ly=Y(pts[pts.length-1]);ctx.beginPath();ctx.arc(lx-3,ly,4,0,7);ctx.fillStyle=css('--signal');ctx.fill();
+}
+const events=["hub.connected · /monitoring","station-07 · status OK","dashboard.render · 16ms","ngrx.effect · syncTransfers","i18n.locale → ar","rbac.guard · role=admin"];
+let ei=0;function tick(){pts.push(Math.max(10,Math.min(92,pts[pts.length-1]+(Math.random()-.5)*16)));pts.shift();draw();
+  const t=new Date().toTimeString().slice(0,8);const line=document.createElement('span');line.innerHTML=`${t} <em>●</em> ${events[ei++%events.length]}`;
+  feed.prepend(line);while(feed.children.length>3)feed.lastChild.remove();}
+for(let i=0;i<3;i++)tick();draw();
+if(!reduce)setInterval(tick,1400);
+addEventListener('resize',draw);
+new MutationObserver(draw).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',draw);
+</script>
+
+</body>
+</html>
