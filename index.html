@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Mohamed Nabil Fathy - Senior Frontend Engineer (Angular). Portfolio, experience and projects.">
 <title>Mohamed Nabil Fathy</title>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://moamednabil5152.github.io/">
+<meta property="og:title" content="Mohamed Nabil Fathy · Senior Frontend Engineer (Angular)">
+<meta property="og:description" content="6+ years building fintech platforms, real-time dashboards, and government systems across Egypt and Saudi Arabia.">
+<meta property="og:image" content="https://moamednabil5152.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
@@ -151,8 +159,8 @@ footer{font-family:var(--mono);font-size:12px;color:var(--muted);text-align:cent
       <div class="panel-head"><span>career.telemetry</span><span>SignalR · live</span></div>
       <div class="stats">
         <div class="stat"><b id="s-years">6+</b><small>Years</small></div>
-        <div class="stat"><b>12</b><small>Platforms</small></div>
-        <div class="stat"><b>5</b><small>Companies</small></div>
+        <div class="stat"><b>10+</b><small>Platforms</small></div>
+        <div class="stat"><b>4</b><small>Companies</small></div>
       </div>
       <canvas id="spark" aria-hidden="true"></canvas>
       <div class="feed" id="feed" aria-hidden="true"></div>
@@ -162,27 +170,24 @@ footer{font-family:var(--mono);font-size:12px;color:var(--muted);text-align:cent
   <section id="experience">
     <div class="sec-head"><div><div class="eyebrow">Experience</div><h2>Where I've shipped</h2></div></div>
     <div class="rail">
-      <div class="job now"><div class="when">05/2025 – Present</div><div>
-        <h3>Senior Frontend Engineer (Angular)</h3><div class="co">node Technologies · Saudi Arabia (Remote)</div>
-        <ul><li>Architected scalable Angular 20 apps with modular design, RBAC, and dynamic dashboards.</li><li>Implemented real-time data streaming with SignalR and advanced data visualization.</li><li>Led performance and SEO work that made page loads 40%+ faster, plus bilingual (Arabic/English) i18n architecture.</li></ul></div></div>
-      <div class="job"><div class="when">06/2023 – 04/2025</div><div>
+      <div class="job now"><div class="when">12/2024 – Present</div><div>
         <h3>Senior Angular Developer</h3><div class="co">Noqood Holding (Fintech) · Cairo</div>
-        <ul><li>Developed secure, high-performance fintech apps for wallet and bank transactions.</li><li>Applied NgRx and SOLID principles to keep large codebases scalable.</li></ul></div></div>
-      <div class="job"><div class="when">12/2022 – 06/2023</div><div>
+        <ul><li>Develop secure, high-performance fintech apps for wallet-to-wallet and bank transactions.</li><li>Apply NgRx and SOLID principles to keep large fintech codebases scalable.</li></ul></div></div>
+      <div class="job"><div class="when">06/2023 – 11/2024</div><div>
+        <h3>Senior Frontend Engineer (Angular)</h3><div class="co">node Technologies · Saudi Arabia (Remote)</div>
+        <ul><li>Architected scalable Angular apps with modular design, RBAC, and dynamic dashboards.</li><li>Implemented real-time data streaming with SignalR and advanced data visualization.</li><li>Led performance and SEO work that made page loads 40%+ faster, plus bilingual (Arabic/English) i18n architecture.</li></ul></div></div>
+      <div class="job"><div class="when">12/2021 – 06/2023</div><div>
         <h3>Senior Angular Developer</h3><div class="co">Microtec · Cairo</div>
         <ul><li>Built enterprise ERP modules from scratch.</li><li>Mentored 3+ developers through guidance and code reviews.</li></ul></div></div>
-      <div class="job"><div class="when">06/2020 – 12/2022</div><div>
+      <div class="job"><div class="when">06/2020 – 12/2021</div><div>
         <h3>Frontend Developer</h3><div class="co">El-Square · Cairo</div>
         <ul><li>Built real-time monitoring dashboards for industrial clients.</li><li>Delivered responsive apps integrated with backend services.</li></ul></div></div>
-      <div class="job"><div class="when">01/2020 – 06/2020</div><div>
-        <h3>Frontend Developer</h3><div class="co">Appout IT · Tanta</div>
-        <ul><li>Built OCR-based document extraction and multi-stage approval workflows.</li></ul></div></div>
     </div>
   </section>
 
   <section id="projects">
     <div class="sec-head">
-      <div><div class="eyebrow">Selected work</div><h2>12 platforms in production</h2></div>
+      <div><div class="eyebrow">Selected work</div><h2>10+ platforms in production</h2></div>
       <div class="filters" role="group" aria-label="Filter projects" id="filters"></div>
     </div>
     <div class="grid" id="grid"></div>
@@ -217,18 +222,17 @@ footer{font-family:var(--mono);font-size:12px;color:var(--muted);text-align:cent
 
 <script>
 const projects=[
-  {n:"Sera Social Platform",t:"Government",d:"06/2025 – Present",p:"Internal social platform connecting employees and management at the Saudi Ministry of Energy.",s:["Angular 20","PrimeNG","Tailwind","i18n"]},
-  {n:"GPIW",t:"Enterprise",d:"05/2025 – Present",p:"Web platform built on a modern Angular 20 stack.",s:["Angular 20","PrimeNG","Tailwind"]},
+  {n:"Kash Now",t:"Fintech",d:"Noqood Holding",p:"Wallet-to-wallet and bank transfer platform with secure, scalable architecture.",s:["Angular","NgRx","RxJS","Angular Material"]},
+  {n:"NDP Digital Payment Platform",t:"Fintech",d:"Noqood Holding",p:"Digital payment processing platform built for high scalability and security.",s:["Angular","NgRx","REST APIs"]},
+  {n:"Sera Social Platform",t:"Government",d:"node Technologies",p:"Internal social platform connecting employees and management at the Saudi Ministry of Energy.",s:["Angular","PrimeNG","Tailwind","i18n"]},
+  {n:"GPIW",t:"Enterprise",d:"node Technologies",p:"Web platform built on a modern Angular stack.",s:["Angular","PrimeNG","Tailwind"]},
+  {n:"Finance ERP System",t:"Fintech",d:"Microtec",p:"Financial operations and transaction handling, with performance optimization.",s:["Angular","NgRx","RxJS"]},
+  {n:"Taqa Monitoring System",t:"Industrial",d:"El-Square",p:"Real-time station monitoring with live machine status over SignalR.",s:["Angular","NgRx","SignalR","ApexCharts","Highcharts"]},
+  {n:"Coca-Cola Production Monitoring",t:"Industrial",d:"El-Square",p:"Production tracking dashboards for bottles, profits, and line connectivity.",s:["Angular","RxJS","NgRx","Charts"]},
+  {n:"Oriental Weavers Enterprise Systems",t:"Industrial",d:"El-Square",p:"Enterprise reporting and operational systems with clean, scalable architecture.",s:["Angular","NgRx","Angular Material"]},
   {n:"Zakham Floor Map",t:"Enterprise",d:"04/2025 – 05/2025",p:"Bilingual platform with RBAC, dynamic dashboards, and modular architecture.",s:["Angular 20","PrimeNG","Tailwind","i18n"]},
   {n:"Zakham Portfolio",t:"Enterprise",d:"03/2025 – 04/2025",p:"Company portfolio website.",s:["Angular 18","PrimeNG","Tailwind"]},
-  {n:"Kash Now",t:"Fintech",d:"09/2024 – 02/2025",p:"Wallet-to-wallet and bank transfer platform with secure, scalable architecture.",s:["Angular","NgRx","RxJS","Angular Material"]},
-  {n:"NDP Digital Payment Platform",t:"Fintech",d:"03/2024 – 12/2024",p:"Digital payment processing platform built for high scalability and security.",s:["Angular","NgRx","REST APIs"]},
-  {n:"Hospital Information System",t:"Healthcare",d:"01/2024 – 06/2024",p:"Hospital management web application.",s:["Angular","NgRx","REST APIs"]},
-  {n:"Finance ERP System",t:"Fintech",d:"2023",p:"Financial operations and transaction handling, with performance optimization.",s:["Angular","NgRx","RxJS"]},
-  {n:"Taqa Monitoring System",t:"Industrial",d:"01/2022 – 12/2022",p:"Real-time station monitoring with live machine status over SignalR.",s:["Angular","NgRx","SignalR","ApexCharts","Highcharts"]},
-  {n:"Coca-Cola Production Monitoring",t:"Industrial",d:"03/2021 – 12/2021",p:"Production tracking dashboards for bottles, profits, and line connectivity.",s:["Angular","RxJS","NgRx","Charts"]},
-  {n:"Oriental Weavers Enterprise Systems",t:"Industrial",d:"06/2020 – 02/2021",p:"Enterprise reporting and operational systems with clean, scalable architecture.",s:["Angular","NgRx","Angular Material"]},
-  {n:"Smart Audit System",t:"Enterprise",d:"01/2020 – 06/2020",p:"OCR-based invoice extraction with a multi-stage approval workflow.",s:["Angular","PrimeNG","OCR","TypeScript"]}
+  {n:"Hospital Information System",t:"Healthcare",d:"01/2024 – 06/2024",p:"Hospital management web application.",s:["Angular","NgRx","REST APIs"]}
 ];
 const cats=["All",...new Set(projects.map(p=>p.t))];
 const grid=document.getElementById('grid'),filters=document.getElementById('filters');
